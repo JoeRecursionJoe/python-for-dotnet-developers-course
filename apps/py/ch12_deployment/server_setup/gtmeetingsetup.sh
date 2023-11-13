@@ -34,10 +34,10 @@ git config --global user.name "Your name"
 # Web app file structure
 mkdir /apps
 chmod 777 /apps
-mkdir /apps/logs
-mkdir /apps/logs/guitary
-mkdir /apps/logs/guitary/app_log
-cd /apps
+# mkdir /apps/logs
+# mkdir /apps/logs/gtmeeting
+# mkdir /apps/logs/gtmeeting/app_log
+# cd /apps
 
 # Create a virtual env for the app.
 cd /apps
@@ -50,19 +50,21 @@ pip install --upgrade uwsgi
 
 # clone the repo:
 cd /apps
-git clone https://github.com/talkpython/python-for-dotnet-developers-course app_repo
+git clone https://github.com/JoeRecursionJoe/ gtmeeting
+git@github.com:JoeRecursionJoe/gtmeeting.git
+
 
 # Setup the web app:
 cd /apps/app_repo/apps/py/ch07_web/
 pip install -r requirements.txt
 
 # Copy and enable the daemon
-cp /apps/app_repo/apps/py/ch12_deployment/config/guitary.service /etc/systemd/system/guitary.service
+cp /apps/app_repo/apps/py/ch12_deployment/config/gtmeeting.service /etc/systemd/system/gtmeeting.service
 
 
-systemctl start guitary
-systemctl status guitary
-systemctl enable guitary
+systemctl start gtmeeting
+systemctl status gtmeeting
+systemctl enable gtmeeting
 
 # systemctl daemon-reload
 # If you make changes to the service file
