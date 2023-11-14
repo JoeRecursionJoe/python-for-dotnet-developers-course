@@ -12,6 +12,9 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 sudo apt-get install -y -q build-essential git unzip zip nload tree
 sudo apt-get install -y -q python3-pip python3-dev python3-venv
 sudo apt-get install -y -q nginx
+sudo apt-get install -y -q libpq-dev
+sudo apt-get install -y -q postgresql postgresql-contrib
+
 # for gzip support in uwsgi
 sudo apt-get install --no-install-recommends -y -q libpcre3-dev libz-dev
 
@@ -28,8 +31,8 @@ git config --global credential.helper cache
 git config --global credential.helper 'cache --timeout=720000'
 
 # Be sure to put your info here:
-git config --global user.email "you@email.com"
-git config --global user.name "Your name"
+git config --global user.email "Joe@Riedley.net"
+git config --global user.name "Joe Riedley"
 
 # Web app file structure
 mkdir /apps
@@ -59,7 +62,7 @@ cd /apps/app_repo/apps/py/ch07_web/
 pip install -r requirements.txt
 
 # Copy and enable the daemon
-cp /apps/app_repo/apps/py/ch12_deployment/config/gtmeeting.service /etc/systemd/system/gtmeeting.service
+cp /apps/gtmeeting/config/gtmeeting.service /etc/systemd/system/gtmeeting.service
 
 
 systemctl start gtmeeting
